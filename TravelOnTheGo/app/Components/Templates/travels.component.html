@@ -1,0 +1,42 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Travels
+    </div>
+    <div class='panel-body'>
+        <div class='table-responsive'>
+            <div style="padding-bottom:10px"><button class="btn btn-primary" [routerLink]="['add']">Ajouter un voyage</button></div>
+            <div *ngIf='travels && travels.length==0' class="alert alert-info" role="alert">Aucun enregistrement trouvé!</div>
+            <table class='table table-striped' *ngIf='travels && travels.length'>
+                <thead>
+                    <tr>
+                        <th>Driver<th>
+                        <th>Places Left</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let travel of travels">
+                        <td>{{travel.Driver}}</td>
+                        <td>{{travel.PlacesLeft}}}</td>
+                        <td>{{travel.Origin}}</td>
+                        <td>{{travel.Destination}}</td>
+                        <td>
+                            <button title="Edit" class="btn btn-primary">Editer</button>
+                            <button title="Delete" class="btn btn-danger">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+            </div>
+        </div>
+        <div *ngIf="msg" role="alert" class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            {{msg}}
+        </div>
+    </div>
+</div>
